@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+    	<h:outputStylesheet library="css" name="table-style.css"  />
+    </h:head>
+ 
+    <h:body>
+ 
+    	<h1>JSF 2.0 + Spring + Hibernate Example</h1>
+ 
+        <h:dataTable value="#{customer.allReview}" var="c"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+ 
+    		
+ 
+    		<h:column>
+    			<f:facet name="header">
+    				id
+				</f:facet>
+    				#{c.reviewId}
+    		</h:column>
+ 
+ 			
+    		<h:column>
+    			<f:facet name="header">
+    				custid
+				</f:facet>
+    				#{c.customer}
+    		</h:column>
+            
+            <h:column>
+    			<f:facet name="header">
+    				restid
+				</f:facet>
+    				#{c.restaurantdetail}
+    		</h:column>
+            <h:column>
+    			<f:facet name="header">
+    				detail
+				</f:facet>
+    				#{c.reviewDetails}
+    		</h:column>
+            
+    	</h:dataTable>
+ 		
+ 		<h2>Add New review</h2>
+ 		<h:form>
+ 			
+ 			<h:panelGrid columns="3">
+			
+				Restaurant : 
+                                <h:inputText id="name" value="#{customer.restname}" 
+					size="20" required="true"
+					label="Name" >
+				</h:inputText>
+					
+				<h:message for="name" style="color:red" />
+			
+                                
+				Customer : 
+                                <h:inputText id="name" value="#{customer.emailId}" 
+					size="20" required="true"
+					label="Name" >
+				</h:inputText>
+                                
+				detail : 
+                                <h:inputTextarea id="address1" value="#{customer.detail}" 
+					cols="30" rows="10" required="true"
+					label="Address" >
+				</h:inputTextarea>
+                              
+			</h:panelGrid>
+			
+                    <h:commandButton value="Submit" action="#{customer.addReview()}" />
+
+ 		</h:form>
+ 		
+    </h:body>
+ 
+</html>

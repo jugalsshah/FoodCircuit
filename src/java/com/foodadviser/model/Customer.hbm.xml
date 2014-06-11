@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2014 8:13:35 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.foodadviser.model.Customer" table="customer" catalog="test">
+        <id name="customerId" type="java.lang.Long">
+            <column name="CUSTOMER_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="45" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="EMAIL_ID" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="20" not-null="true" />
+        </property>
+        <property name="image" type="binary">
+            <column name="IMAGE" />
+        </property>
+        <set name="reviews" inverse="true">
+            <key>
+                <column name="CUSTOMER_Id" not-null="true" />
+            </key>
+            <one-to-many class="com.foodadviser.model.Review" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

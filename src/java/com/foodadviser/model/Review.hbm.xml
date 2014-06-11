@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 10, 2014 8:13:35 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.foodadviser.model.Review" table="review" catalog="test">
+        <id name="reviewId" type="java.lang.Integer">
+            <column name="REVIEW_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="restaurantdetail" class="com.foodadviser.model.Restaurantdetail" fetch="select">
+            <column name="REST_Id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customer" class="com.foodadviser.model.Customer" fetch="select">
+            <column name="CUSTOMER_Id" not-null="true" />
+        </many-to-one>
+        <property name="reviewDetails" type="string">
+            <column name="REVIEW_DETAILS" length="45" not-null="true" />
+        </property>
+        <property name="picture" type="string">
+            <column name="picture" length="45" />
+        </property>
+        <set name="comments" inverse="true">
+            <key>
+                <column name="REVIEW_Id" />
+            </key>
+            <one-to-many class="com.foodadviser.model.Comment" />
+        </set>
+    </class>
+</hibernate-mapping>
