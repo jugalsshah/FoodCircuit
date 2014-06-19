@@ -15,4 +15,5 @@ public interface RestaurantdetailDao {
  
     List<Restaurantdetail> findAlldetails();
     List<Restaurantdetail> getIdByName(String string);
+     List<Restaurantdetail> getRestaurantNameById(int id);
 }

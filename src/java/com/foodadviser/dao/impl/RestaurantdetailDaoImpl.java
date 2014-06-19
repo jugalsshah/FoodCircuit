@@ -44,16 +44,12 @@ public class RestaurantdetailDaoImpl implements RestaurantdetailDao{
     
     @Override
     public List<Restaurantdetail> getIdByName(String s) {
-//        System.out.println(s);
-//        Customer cust = null;
-       
-//        Restaurantdetail r = snull;
+
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             
             trns = session.beginTransaction();
-            System.out.println(s+"sdsdsd");
             Criteria c= session.createCriteria(Restaurantdetail.class);
             c.add(Restrictions.eq("name", s));
             //cust = (Customer) query.uniqueResult();
@@ -61,7 +57,7 @@ public class RestaurantdetailDaoImpl implements RestaurantdetailDao{
            List<Restaurantdetail> list = c.list();
 //            System.out.println("133");
             if (list.size() > 0) {
-                System.out.println("555");
+            
                 return list;
             }
         } catch (RuntimeException e) {
@@ -72,5 +68,41 @@ public class RestaurantdetailDaoImpl implements RestaurantdetailDao{
         }
         return null ;
     }
+    
+    
+    @Override
+    public List<Restaurantdetail> getRestaurantNameById(int id){
+    
+    Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            Criteria cr = session.createCriteria(Restaurantdetail.class);
+
+            cr.add(Restrictions.eq("id", id));
+
+//            cr.add(Restrictions.eqProperty("emailId","customerId"));
+            List<Restaurantdetail> results = cr.list();
+            if (results.size() > 0) {
+    
+                return results;
+            } else {
+                
+                return results;
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+//            System.out.println("sff");
+            session.flush();
+            session.close();
+        }
+        return null;
+
+
     }
+    
+    
+    }
+    
     

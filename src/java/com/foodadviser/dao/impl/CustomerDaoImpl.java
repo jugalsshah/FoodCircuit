@@ -104,8 +104,8 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public List<Customer> getCustomerIdByName(String name) {
-        System.out.println(name + "jugllll");
+    public List<Customer> getCustomerIdByEmailId(String name) {
+        
 //        Customer cust = null;
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -124,19 +124,18 @@ public class CustomerDaoImpl implements CustomerDao {
 //            return list;
 //            }
             Criteria cr = session.createCriteria(Customer.class);
-           
+
 //            cr.setProjection(Projections.property("customerId"));
-             cr.add(Restrictions.eq("emailId", name));
-             
+            cr.add(Restrictions.eq("emailId", name));
+
 //            cr.add(Restrictions.eqProperty("emailId","customerId"));
             List<Customer> results = cr.list();
             if (results.size() > 0) {
-                System.out.println("sds");
+               
                 return results;
-            }
-            else{
-                System.out.println("sdjj");
-            return results;
+            } else {
+                
+                return results;
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -146,5 +145,36 @@ public class CustomerDaoImpl implements CustomerDao {
             session.close();
         }
         return null;
+    }
+
+    @Override
+    public List<Customer> getCustomerNamebyId(Long customerid) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            Criteria cr = session.createCriteria(Customer.class);
+
+            cr.add(Restrictions.eq("customerId", customerid));
+
+//            cr.add(Restrictions.eqProperty("emailId","customerId"));
+            List<Customer> results = cr.list();
+            if (results.size() > 0) {
+               
+                return results;
+            } else {
+               
+                return results;
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+//            System.out.println("sff");
+            session.flush();
+            session.close();
+        }
+        return null;
+
+
     }
 }

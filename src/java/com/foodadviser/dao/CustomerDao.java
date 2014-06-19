@@ -12,10 +12,12 @@ import java.util.List;
  * @author jugalshah
  */
 public interface CustomerDao {
-    
-    
+
     void addCustomer(Customer customer);
- 
-	List<Customer> findAllCustomer();
- List<Customer> getCustomerIdByName(String s);
+
+    List<Customer> findAllCustomer();
+
+    List<Customer> getCustomerIdByEmailId(String s);
+
+    List<Customer> getCustomerNamebyId(Long customerid);
 }

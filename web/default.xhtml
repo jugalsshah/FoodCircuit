@@ -40,7 +40,8 @@
     			<f:facet name="header">
     				restid
 				</f:facet>
-    				#{c.restaurantdetail}
+    				#{c.restaurantdetail
+}
     		</h:column>
             <h:column>
     			<f:facet name="header">
@@ -57,7 +58,7 @@
  			<h:panelGrid columns="3">
 			
 				Restaurant : 
-                                <h:inputText id="name" value="#{customer.restname}" 
+                                <h:inputText value="#{customer.restname}" 
 					size="20" required="true"
 					label="Name" >
 				</h:inputText>
@@ -66,7 +67,7 @@
 			
                                 
 				Customer : 
-                                <h:inputText id="name" value="#{customer.emailId}" 
+                                <h:inputText  value="#{customer.emailId}" 
 					size="20" required="true"
 					label="Name" >
 				</h:inputText>

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-<!--      xmlns:a4j="http://richfaces.org/a4j"
-       xmlns:rich="http://richfaces.org/rich">-->
-      <!--xmlns:ui="http://java.sun.com/jsf/facelets">-->
+      
+  <!--xmlns:p="http://primefaces.org/ui">-->
+    
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>MyFreeCssTemplates.com free CSS template</title>
@@ -12,46 +12,46 @@
         <meta name="description" content="" />
 
         <!--<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />-->
-            <link href="#{facesContext.externalContext.requestContextPath}/resources/css/styles_original.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/styles_original.css" rel="stylesheet" type="text/css" />
         <link href="#{facesContext.externalContext.requestContextPath}/resources/css/nivo-slider.css" rel="stylesheet" type="text/css" />
         <script src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery-1.8.2.js"></script>
         <script src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery-ui-1.9.0.custom.js"></script>
         <script src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.autocomplete.js"></script>
         <style>
-            
+
             .logo h1 {
-	padding: 0px;
-	font-size: 24px;
-	color: #ffffff;
-	text-align: right;
-	padding-right: 30px;
-}
+                padding: 0px;
+                font-size: 24px;
+                color: #ffffff;
+                text-align: right;
+                padding-right: 30px;
+            }
         </style>
-        
-      <script type="text/javascript">
-        var str =new Array();
-                    
-    </script>
+
+        <script type="text/javascript">
+            var str = new Array();
+
+        </script>
 
         <ui:repeat value="#{rest.alllist}" var="a">
-        <script type="text/javascript">        
-            
-                str.push("#{a.name}");
+            <script type="text/javascript">
+
+            str.push("#{a.name}");
+            </script>
+        </ui:repeat>
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+                $("#id1").autocomplete({
+                    source: str
+                });
+            });
+
+
         </script>
-    </ui:repeat>
-    <script type="text/javascript">
-        
-    $(document).ready(function(){
-            $("#id1").autocomplete({
-                source:str
-            }); 
-        });
-    
-    
-    </script>
     </head>
     <h:body>
-
+        
         <div id="bg">
 
             <div id="main">
@@ -59,34 +59,35 @@
                     <!-- header begins -->
                     <div id="header">
                         <h:form>
-                             <div id="logo">
-                                 <div id="signin">
-                                             <h:commandButton action="Signup.xhtml" value="Signup"/>
-                                             <h:commandButton action="index.xhtml" value="Signin"/>
-                                 </div>                                    
-                                
+                            <div id="logo">
+                                <div id="signin">
+                                    <h:commandButton action="Signup.xhtml" value="Signup"/>
+                                    <h:commandButton action="event.xhtml" value="Signin"/>
+                                </div>                                    
+
                                 <div id="search1">
-                                        <!--<h:inputText autocomplete="#rest.name}" id="id1" value="Search:"/>-->
+                                    <!--<h:inputText autocomplete="#rest.name}" id="id1" value="Search:"/>-->
                                 </div>    <!--Search : <h:inputText id="id1"  />-->
-                                                                <h1>Welcome</h1>
+                                <h1>Welcome</h1>
                                 <h2><a href="#" id="metamorph">#{customer.emailId}</a></h2>
                             </div>    
-                                <div id="buttons">      
+                            <div id="buttons">      
 
                                 <ul>
+                                    
                                     <h:commandLink >
                                         <li class="first">Home</li>
                                     </h:commandLink>
 
-                                    <h:commandLink action="index.xhtml">
-                                        <li>Write a Review</li>
-                                    </h:commandLink>
-                                    
                                     <h:commandLink action="default.xhtml">
-                                        <li>Find friends</li>
+                                        <li>Reviews</li>
                                     </h:commandLink>
 
-                                    <h:commandLink>
+                                    <h:commandLink action="default.xhtml">
+                                        <li>Hangouts</li>
+                                    </h:commandLink>
+
+                                    <h:commandLink action="event.xhtml">
 
                                         <li>Events</li>
                                     </h:commandLink>
@@ -94,7 +95,7 @@
                                     <h:commandLink>
                                         <li>Contact us</li>
                                     </h:commandLink>
-                                    
+
                                     <h:commandLink>
                                         <li>About us</li>
                                     </h:commandLink>
@@ -124,9 +125,9 @@
                             <!--                            <script type="text/javascript" src="lib/jquery-1.4.3.min.js"></script>
                                                         <script type="text/javascript" src="lib/jquery.nivo.slider.pack.js"></script>-->
                             <script type="text/javascript">
-                                $(window).load(function() {
-                                    $('#slider').nivoSlider();
-                                });
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
                             </script></div>	
                         <div class="clear"></div>
                     </div>
@@ -153,42 +154,50 @@
                                         <h4 class="p1">EventName</h4>
                                         DETAIL eos et accusamus et iusto odio dignissimos ducimus.                                    </div>
                                 </div>
-                                 <h3>Trens</h3>
+                                <h3>Trens</h3>
                                 <div class="wrapper indent-bot2">
                                     <div class="img-indent"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon3.png" alt="" /></a></div>
                                     <div class="extra-wrap">
-                                                                                                    
+
                                         <h4 class="p1">Donec odio</h4>
                                         Ut vero eos et accusamus et iusto odio dignissimos ducimus.                                    </div>
                                 </div>
                                 <div class="wrapper">
                                     <div class="img-indent"><a href="#"><img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon4.png" alt="" /></a></div>
                                     <div class="extra-wrap">
-                                        
+
                                         <h4 class="p1">Duis libero justo</h4>
                                         Ut vero eos et accusamus et iusto odio dignissimos ducimus.                                    </div>
                                 </div>
                             </div>
                             <div class="space8">
                                 <div class="indent-left2">
-                                    <h3>Your Activity</h3>
+                                    <h3>How was the food??</h3>
                                 </div>
                                 <div class="wrapper indent-bot">
                                     <h:form>
-                                    <!--<rich:autocomplete  autocompleteList="{rest.alllist}" />-->
-                                    <h:inputText  label="Restaurant" value="#{customer.restname}"/>
-                                    <h:inputTextarea class="expand" rows="1" cols="10" value="#{customer.detail}"/>
-                                    <h:commandButton action="#{customer.addReview()}" value="addreview" actionListener="default.xhtml"/>
-                                           </h:form>     
-                                        
+                                        <!--<prime:inputText value="{customer.restname}" style="margin-left: 40px" />-->
+                                        <h:inputText  label="Restaurant" value="#{customer.restname}" style="margin-left: 40px"/>
+                                        <h:inputTextarea class="expand" rows="1" cols="10" value="#{customer.detail}"/>
+                                        <h:commandButton action="#{customer.addReview()}" value="addreview" actionListener="default.xhtml" style="margin-left: 40px"/>
+                                    </h:form>     
+
                                 </div>
                                 <div class="indent-left2">
-                                    <h3>Recent Places</h3>
-                                    <h:inputText size="50" >  
-                                    <!--<a4j:support event="onkeyup" reRender="rep"/>-->  
-                                    
-                                            </h:inputText>  
-<h:outputText value="#{bean.text}" id="rep"/>  
+                                    <h3>Recent Activity</h3>
+                                    <h:form>
+                                    <h:dataTable value="#{customer.allReview}" var="review">
+                                     <!--<prime:>-->
+                                        <h:column >
+                                            <h:commandLink>  #{review.customer.name} </h:commandLink> wrote a review for
+                                            <h:commandLink>  #{review.restaurantdetail.name} </h:commandLink>
+                                        </h:column>
+                                        
+                                        <h:column>
+                                            #{review.reviewDetails}
+                                        </h:column>
+                                    </h:dataTable>
+                                    </h:form>
                                 </div>
                                 <div class="wrapper">
                                     <div class="space4 alpha">
@@ -216,18 +225,18 @@
                     <div id="cont_bot"></div>
                     <!-- footer begins -->
                     <div id="footer">
-                       <a> Copyright  2014. Designed by jugal shah, using JSF, Hibernate, Spring</a> <br />
-                       
-                       <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></div>
+                        <a> Copyright  2014. Designed by jugal shah, using JSF, Hibernate, Spring</a> <br />
+
+                        <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></div>
                     <!-- footer ends -->
                 </div>
             </div>
         </div>
         <script type="text/javascript">
-        $('textarea.expand').focus(function () {
-    $(this).animate({ height: "8em" }, 500); 
-    });
-        
+            $('textarea.expand').focus(function() {
+                $(this).animate({height: "8em"}, 500);
+            });
+
         </script>
 
     </h:body>

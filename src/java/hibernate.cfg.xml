@@ -7,10 +7,11 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">jugal</property>
-    <mapping resource="com/foodadviser/model/Comment.hbm.xml"/>
+        <mapping resource="com/foodadviser/model/Comment.hbm.xml"/>
     <mapping resource="com/foodadviser/model/Restaurantdetail.hbm.xml"/>
     <mapping resource="com/foodadviser/model/Review.hbm.xml"/>
     <mapping resource="com/foodadviser/model/Customer.hbm.xml"/>
     <mapping resource="com/foodadviser/model/Event.hbm.xml"/>
+    
   </session-factory>
 </hibernate-configuration>

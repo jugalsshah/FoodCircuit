@@ -43,43 +43,78 @@ public class ReviewDaoImplTest {
     /**
      * Test of addReview method, of class ReviewDaoImpl.
      */
-    @Test
-    public void testAddReview() {
-        System.out.println("addReview");
-        Review review = null;
-        ReviewDaoImpl instance = new ReviewDaoImpl();
-        RestaurantdetailDaoImpl restaurantdetailDaoImpl = new RestaurantdetailDaoImpl();
-        CustomerDaoImpl customerDaoImpl = new CustomerDaoImpl();
-        String s= "jugalsshah283@gmail.com";
-        String ss1="Subway";
-        List<Restaurantdetail> list= restaurantdetailDaoImpl.getIdByName(ss1);
-        List<Customer> li= customerDaoImpl.getCustomerIdByName(s);
-        review.setReviewDetails("dsdsd");
-        
-      for(Restaurantdetail r:list){
-          
-             review.setRestaurantdetail(r);
-      }
-      for(Customer c:li){
-      
-          review.setCustomer(c);
-      }
-        instance.addReview(review);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testAddReview() {
+//        System.out.println("addReview");
+//        Review review = new Review();
+//        String EmailId = "jugal.sk.shah@gmail.com";
+//        String RestName = "Subway";
+//        ReviewDaoImpl instance = new ReviewDaoImpl();
+//        Long expResult = null;
+//        
+//        review.setReviewDetails(RestName);
+//        review.setReviewId(3);
+//        instance.addReview(review, EmailId, RestName);
+////        assertEquals(expResult, result);
+////        // TODO review the generated test code and remove the default call to fail.
+////        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of findAllReview method, of class ReviewDaoImpl.
      */
-//    @Test
-//    public void testFindAllReview() {
-//        System.out.println("findAllReview");
-//        ReviewDaoImpl instance = new ReviewDaoImpl();
-//        List expResult = null;
-//        List result = instance.findAllReview();
+   
+    
+    @Test
+    public void testFindAllReview() {
+        System.out.println("findAllReview");
+        ReviewDaoImpl instance = new ReviewDaoImpl();
+        List expResult = null;
+        List <Review> result = instance.findAllReview();
+CustomerDaoImpl customerDaoImpl = new CustomerDaoImpl();
+RestaurantdetailDaoImpl restaurantdetailDaoImpl= new RestaurantdetailDaoImpl();
+        for(Review r:result){
+        
+            
+//            System.out.println("customerid-->"+r.getCustomer());
+            List<Customer> l= customerDaoImpl.getCustomerNamebyId(r.getCustomer().getCustomerId());
+           for(Customer c:l){
+               System.out.println("name-->"+c.getName());
+           
+           }
+           System.out.println("details-->"+r.getReviewDetails());
+           List<Restaurantdetail> k=restaurantdetailDaoImpl.getRestaurantNameById(r.getRestaurantdetail().getId());
+           for(Restaurantdetail r1:k){
+           
+               System.out.println("rest-->"+r1.getName());
+           }
+        }
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
+    }
+
+    
+    /**
+     * Test of getReviewByName method, of class ReviewDaoImpl.
+//     */
+//    @Test
+//    public void testGetReviewByName() {
+//        System.out.println("getReviewByName");
+//        String EmailId = "jugalsshah283@gmail.com";
+//        ReviewDaoImpl instance = new ReviewDaoImpl();
+////        List expResult = null;
+//        List<Review> result = instance.getReviewByName(EmailId);
+//       for(Review r:result){
+//           System.out.println("custreview"+ r.getReviewDetails());
+//       }
+//        
+//        
 //    }
+
+   
+    /**
+     * Test of findAllReview method, of class ReviewDaoImpl.
+     */
+   
 }

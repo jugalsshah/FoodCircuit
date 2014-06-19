@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2014 8:13:35 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Jun 16, 2014 7:52:39 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.foodadviser.model.Event" table="event" catalog="test">
         <id name="eventId" type="java.lang.Long">
@@ -20,17 +20,17 @@
         <property name="eventPlace" type="string">
             <column name="EVENT_PLACE" length="45" not-null="true" />
         </property>
-        <property name="startingTime" type="timestamp">
-            <column name="STARTING_TIME" length="19" />
+        <property name="startingTime" type="time">
+            <column name="STARTING_TIME" length="8" />
         </property>
-        <property name="endingTime" type="timestamp">
-            <column name="ENDING_TIME" length="19" />
+        <property name="endingTime" type="time">
+            <column name="ENDING_TIME" length="8" />
         </property>
-        <property name="startingDate" type="timestamp">
-            <column name="STARTING_DATE" length="19" />
+        <property name="startingDate" type="date">
+            <column name="STARTING_DATE" length="10" />
         </property>
-        <property name="endingDate" type="timestamp">
-            <column name="ENDING_DATE" length="19" />
+        <property name="endingDate" type="date">
+            <column name="ENDING_DATE" length="10" />
         </property>
         <property name="image" type="string">
             <column name="image" length="45" />

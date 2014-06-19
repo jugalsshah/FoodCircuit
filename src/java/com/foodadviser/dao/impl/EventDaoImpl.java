@@ -50,6 +50,7 @@ public class EventDaoImpl implements EventDao{
             trns = session.beginTransaction();
            
             session.save(event);
+           
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {

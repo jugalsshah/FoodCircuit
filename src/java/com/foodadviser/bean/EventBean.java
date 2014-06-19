@@ -6,14 +6,20 @@ package com.foodadviser.bean;
 
 import com.foodadviser.dao.impl.EventDaoImpl;
 import com.foodadviser.model.Event;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.convert.FacesConverter;
 
 /**
  *
  * @author jugalshah
  */
 @ManagedBean(name = "event")
+@SessionScoped
+@FacesConverter(forClass = Event.class)
 public class EventBean {
     
     EventDaoImpl eventDaoImpl;
@@ -129,6 +135,11 @@ event.setEventType(getEventType());
 event.setStartingDate(new Date());
 event.setStartingTime(new Date());
          
+     }
+     
+     public List<Event> getReviewList(){
+     eventDaoImpl= new EventDaoImpl();
+     return eventDaoImpl.retrieveEventById();
      }
     
 }

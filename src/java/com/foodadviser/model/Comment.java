@@ -1,5 +1,5 @@
 package com.foodadviser.model;
-// Generated Jun 10, 2014 8:13:33 PM by Hibernate Tools 3.2.1.GA
+// Generated Jun 16, 2014 6:07:34 PM by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;

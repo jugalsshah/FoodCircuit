@@ -98,24 +98,48 @@ public class CustomerDaoImplTest {
     /**
      * Test of getCustomerIdByName method, of class CustomerDaoImpl.
      */
+//    @Test
+//    public void testGetCustomerIdByName() {
+//        System.out.println("getCustomerIdByName");
+//        String name = "jugalsshah283@gmail.com";
+//        CustomerDaoImpl instance = new CustomerDaoImpl();
+//       
+//        System.out.println("sdasdas");
+//        List<Customer> result = instance.getCustomerIdByEmailId(name);
+////        for (Iterator<Customer> it = result.iterator(); it.hasNext();) {
+////            Customer c = it.next();
+////            System.out.println(c.getCustomerId());
+////        }
+//        for(Customer s:result){
+//        
+//            System.out.println(s.getCustomerId()+"sdsd");
+//        } 
+//    }
+
+    /**
+     * Test of addCustomer method, of class CustomerDaoImpl.
+     */
+    
+    /**
+     * Test of getCustomerNamebyId method, of class CustomerDaoImpl.
+     */
     @Test
-    public void testGetCustomerIdByName() {
-        System.out.println("getCustomerIdByName");
-        String name = "jugalsshah283@gmail.com";
+    public void testGetCustomerNamebyId() {
+        System.out.println("getCustomerNamebyId");
+        Long customerid = 1L;
         CustomerDaoImpl instance = new CustomerDaoImpl();
-       
-        System.out.println("sdasdas");
-        List<Customer> result = instance.getCustomerIdByName(name);
-//        for (Iterator<Customer> it = result.iterator(); it.hasNext();) {
-//            Customer c = it.next();
-//            System.out.println(c.getCustomerId());
-//        }
-        for(Customer s:result){
+        List expResult = null;
+        List<Customer> result = instance.getCustomerNamebyId(customerid);
+        for(Customer c:result){
+            System.out.println("email"+ c.getEmailId());
         
-            System.out.println(s.getCustomerId()+"sdsd");
-        } 
+        }
+       
     }
 
+    /**
+     * Test of addCustomer method, of class CustomerDaoImpl.
+   
     /**
      * Test of addCustomer method, of class CustomerDaoImpl.
      */

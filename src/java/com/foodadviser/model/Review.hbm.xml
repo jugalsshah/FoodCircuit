@@ -8,10 +8,10 @@
             <column name="REVIEW_ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="restaurantdetail" class="com.foodadviser.model.Restaurantdetail" fetch="select">
+        <many-to-one name="restaurantdetail" class="com.foodadviser.model.Restaurantdetail" fetch="select" lazy="false">
             <column name="REST_Id" not-null="true" />
         </many-to-one>
-        <many-to-one name="customer" class="com.foodadviser.model.Customer" fetch="select">
+        <many-to-one name="customer" class="com.foodadviser.model.Customer" fetch="select" lazy="false">
             <column name="CUSTOMER_Id" not-null="true" />
         </many-to-one>
         <property name="reviewDetails" type="string">

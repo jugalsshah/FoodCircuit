@@ -12,14 +12,14 @@ and open the template in the editor.
     <link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" />
     <link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/jquery-ui-1.9.2.custom.css" />
     <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery-1.8.3.js"></script>
-        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery-ui-1.9.2.custom.js"></script>
-        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.leanModal.min.js"></script>
-        
-<!--        <script type="text/javascript" src="{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.core.js"></script>
-        <script type="text/javascript" src="{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.widget.js"></script>
-        <script type="text/javascript" src="{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.datepicker.js"></script>-->
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery-ui-1.9.2.custom.js"></script>
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.leanModal.min.js"></script>
 
-    
+    <!--        <script type="text/javascript" src="{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.core.js"></script>
+            <script type="text/javascript" src="{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.widget.js"></script>
+            <script type="text/javascript" src="{facesContext.externalContext.requestContextPath}/resources/javascript/jquery.ui.datepicker.js"></script>-->
+
+
 
     <h:body>
         <div class="container">
@@ -58,17 +58,17 @@ and open the template in the editor.
                             <br />
                             <h:outputLabel value="Start Date:"/>
                             <h:inputText  id="date" value="#{event.startingDate}" 
-                                         size="20"  class ="date"
-                                         >
+                                          size="20"  class ="date"
+                                          >
                             </h:inputText>
                             <br /> 
 
-                            
+
 
                             <h:outputLabel value="Start Time:"/>
                             <h:selectOneListbox size="1" id="time" value="#{event.startingTime}"
                                                 >
-                                <f:selectItem itemValue="12:00"/>
+                                <f:selectItem itemValue="12:00" />
                                 <f:selectItem itemValue="12:30"/>
                                 <f:selectItem itemValue="1:00"/>
                                 <f:selectItem itemValue="1:30"/>
@@ -104,12 +104,12 @@ and open the template in the editor.
                             <br />
                             <div class="hiddenDiv">
                                 <h:commandButton  class="button" value="efef" style="float: right;" />    
-                                  
+
 
                                 <h:outputLabel value="End Date:"/>
                                 <h:inputText id="evename33" value="#{event.endingDate}" 
                                              size="20" required="true" styleClass="date"
-                                              >
+                                             >
                                 </h:inputText>
                                 <br />
 
@@ -147,91 +147,91 @@ and open the template in the editor.
                                     <f:selectItem itemValue="pm"/>
                                 </h:selectOneListbox> 
 
-                               
+
                             </div>
                             <div>
                                 <h:commandButton value="Create Event" class="btn btn_red" action="#{event.createEvet()}" actionListener="home.xhtml" style="float: right;" />
-                            <div class="show">
-                                <h5 > <a href="#" class="showHide2"  style="float: left;"><h:button class="btn btn_red" value="ADD End Time?"/></a></h5>
-                                
+                                <div class="show">
+                                    <h5 > <a href="#" class="showHide2"  style="float: left;"><h:button class="btn btn_red" value="ADD End Time?"/></a></h5>
+
+                                </div>
                             </div>
-                            </div>
-                             </h:form>
-                            </div>
-                                                            
+                        </h:form>
+                    </div>
+
                 </section>
             </div>
         </div>
-<script type="text/javascript">
-                    $(document).ready(function() {
-                        //                var pickerOpts = {
-                        //                    showOtherMonths: true
-                        //                    dateFormat:"yy-mm-dd"
-                        //                    showButtonpanel:true
-                        // 
-                        //                };
-                        $( ".date" ).datepicker();
-                    });
-                </script>
-                
-    <script type="text/javascript">
-         $("#modal_trigger").leanModal({top: 20, overlay: 0.6, closeButton: ".modal_close"});
-        
-    $(document).ready(function(){
-        
-             $(".hiddenDiv").hide();
-        $(".showHide2").show();
-       
-
-//            
-            $(".showHide2").click(function() {
-                $(".hiddenDiv").toggle();
-                $(".showHide2").hide();
-                $(".user_login").show();
+        <script type="text/javascript">
+            $(document).ready(function() {
+                //                var pickerOpts = {
+                //                    showOtherMonths: true
+                //                    dateFormat:"yy-mm-dd"
+                //                    showButtonpanel:true
+                // 
+                //                };
+                $(".date").datepicker();
             });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
+        </script>
 
+        <script type="text/javascript">
+            $("#modal_trigger").leanModal({top: 20, overlay: 0.6, closeButton: ".modal_close"});
 
+            $(document).ready(function() {
 
-            $("#button").click(function() {
-                
                 $(".hiddenDiv").hide();
-            });
-        });
-    </script> 
-<!--        <script type="text/javascript">
-            $("#modal_trigger").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
+                $(".showHide2").show();
 
-            $(function() {
-                // Calling Login Form
-                $("#login_form").click(function() {
-                    $(".social_login").hide();
+
+                //            
+                $(".showHide2").click(function() {
+                    $(".hiddenDiv").toggle();
+                    $(".showHide2").hide();
                     $(".user_login").show();
-                    return false;
                 });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
 
-                // Calling Register Form
-                $("#register_form").click(function() {
-                    $(".social_login").hide();
-                    $(".user_register").show();
-                    $(".header_title").text('Register');
-                    return false;
+
+
+                $("#button").click(function() {
+
+                    $(".hiddenDiv").hide();
                 });
-
-                // Going back to Social Forms
-                $(".back_btn").click(function() {
-                    $(".user_login").hide();
-                    $(".user_register").hide();
-                    $(".social_login").show();
-                    $(".header_title").text('Login');
-                    return false;
-                });
-
-            })
-        </script>-->
+            });
+        </script> 
+        <!--        <script type="text/javascript">
+                    $("#modal_trigger").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
+        
+                    $(function() {
+                        // Calling Login Form
+                        $("#login_form").click(function() {
+                            $(".social_login").hide();
+                            $(".user_login").show();
+                            return false;
+                        });
+        
+                        // Calling Register Form
+                        $("#register_form").click(function() {
+                            $(".social_login").hide();
+                            $(".user_register").show();
+                            $(".header_title").text('Register');
+                            return false;
+                        });
+        
+                        // Going back to Social Forms
+                        $(".back_btn").click(function() {
+                            $(".user_login").hide();
+                            $(".user_register").hide();
+                            $(".social_login").show();
+                            $(".header_title").text('Login');
+                            return false;
+                        });
+        
+                    })
+                </script>-->
 
     </h:body>
 </html>

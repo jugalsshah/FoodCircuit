@@ -59,20 +59,40 @@ public class RestaurantdetailDaoImplTest {
     /**
      * Test of getIdByName method, of class RestaurantdetailDaoImpl.
      */
+//    @Test
+//    public void testGetIdByName() {
+//        System.out.println("getIdByName");
+//        String s = "Subway";
+//        RestaurantdetailDaoImpl instance = new RestaurantdetailDaoImpl();
+////        List expResult = null;
+//        List<Restaurantdetail> result = instance.getIdByName(s);
+////        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+////        fail("The test case is a prototype.");
+//        for(Restaurantdetail r:result){
+//            System.out.println(r.getId()+"jugsl");
+//        
+//        }
+//    }
+
+
+    /**
+     * Test of getRestaurantNameById method, of class RestaurantdetailDaoImpl.
+     */
     @Test
-    public void testGetIdByName() {
-        System.out.println("getIdByName");
-        String s = "Subway";
+    public void testGetRestaurantNameById() {
+        System.out.println("getRestaurantNameById");
+        int id = 5;
         RestaurantdetailDaoImpl instance = new RestaurantdetailDaoImpl();
-//        List expResult = null;
-        List<Restaurantdetail> result = instance.getIdByName(s);
+        List expResult = null;
+        List<Restaurantdetail> result = instance.getRestaurantNameById(id);
+        for(Restaurantdetail r:result){
+        
+            System.out.println("name"+r.getName());
+        }
 //        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
-        for(Restaurantdetail r:result){
-            System.out.println(r.getId()+"jugsl");
-        
-        }
     }
 
     /**

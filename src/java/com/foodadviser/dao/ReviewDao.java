@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ReviewDao {
     
-    void addReview(Review review);
+    public void addReview(Review review, String EmailId, String RestName);
  
 	List<Review> findAllReview();
  

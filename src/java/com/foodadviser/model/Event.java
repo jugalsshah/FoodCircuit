@@ -1,5 +1,5 @@
 package com.foodadviser.model;
-// Generated Jun 10, 2014 8:13:33 PM by Hibernate Tools 3.2.1.GA
+// Generated Jun 16, 2014 7:52:39 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -101,8 +101,8 @@ public class Event  implements java.io.Serializable {
     public void setEventPlace(String eventPlace) {
         this.eventPlace = eventPlace;
     }
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="STARTING_TIME", length=19)
+    @Temporal(TemporalType.TIME)
+    @Column(name="STARTING_TIME", length=8)
     public Date getStartingTime() {
         return this.startingTime;
     }
@@ -110,8 +110,8 @@ public class Event  implements java.io.Serializable {
     public void setStartingTime(Date startingTime) {
         this.startingTime = startingTime;
     }
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="ENDING_TIME", length=19)
+    @Temporal(TemporalType.TIME)
+    @Column(name="ENDING_TIME", length=8)
     public Date getEndingTime() {
         return this.endingTime;
     }
@@ -119,8 +119,8 @@ public class Event  implements java.io.Serializable {
     public void setEndingTime(Date endingTime) {
         this.endingTime = endingTime;
     }
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="STARTING_DATE", length=19)
+    @Temporal(TemporalType.DATE)
+    @Column(name="STARTING_DATE", length=10)
     public Date getStartingDate() {
         return this.startingDate;
     }
@@ -128,8 +128,8 @@ public class Event  implements java.io.Serializable {
     public void setStartingDate(Date startingDate) {
         this.startingDate = startingDate;
     }
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="ENDING_DATE", length=19)
+    @Temporal(TemporalType.DATE)
+    @Column(name="ENDING_DATE", length=10)
     public Date getEndingDate() {
         return this.endingDate;
     }
@@ -147,7 +147,30 @@ public class Event  implements java.io.Serializable {
         this.image = image;
     }
 
+@Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (eventId != null ? eventId.hashCode() : 0);
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Event)) {
+            return false;
+        }
+        Event other = (Event) object;
+        if ((this.eventId == null && other.eventId != null) || (this.eventId != null && !this.eventId.equals(other.eventId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.foodadviser.model.Event[ eventId=" + eventId + " ]";
+    }
 
 
 }

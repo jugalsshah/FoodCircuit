@@ -22,16 +22,19 @@
 //public class ReviewBean {
 //    
 ////    @ManagedProperty(value = "customerBean").
-//    CustomerBean customerBean  = new CustomerBean();;
+////    CustomerBean customerBean  = new CustomerBean();;
 ////    @ManagedProperty(value = "restaurantsDetailsBean")
-//    RestaurantsDetailsBean restaurantsDetailsBean = new RestaurantsDetailsBean();;
+////    RestaurantsDetailsBean restaurantsDetailsBean;
 //    ReviewDaoImpl reviewDaoImpl;
-//    CustomerDaoImpl customerDaoImpl = new CustomerDaoImpl();
-//    RestaurantdetailDaoImpl restaurantdetailDaoImpl= new RestaurantdetailDaoImpl();
+//    CustomerDaoImpl customerDaoImpl;
+//    RestaurantdetailDaoImpl restaurantdetailDaoImpl;
 //    
 //    public String detail;
 //    public String restName;
 //    public String Email;
+//    List<Review> list;
+//    List<Customer> custList;
+//    List<Restaurantdetail> restaurantdetailsList;
 //    
 //
 //    public CustomerBean getCustomerBean() {
@@ -87,53 +90,10 @@
 //        return detail;
 //    }
 //
-//    public RestaurantsDetailsBean getRestaurantsDetailsBean() {
-//        return restaurantsDetailsBean;
-//    }
-//
-//    public void setCustomerBean(CustomerBean customerBean) {
-//        this.customerBean = customerBean;
-//    }
-//
 //    public void setDetail(String detail) {
 //        this.detail = detail;
 //    }
-//
-//    public void setRestaurantsDetailsBean(RestaurantsDetailsBean restaurantsDetailsBean) {
-//        this.restaurantsDetailsBean = restaurantsDetailsBean;
-//    }
 //    
-//    public String addReview(){
-//		reviewDaoImpl =new ReviewDaoImpl();
-//                
-//                
-//                
-//                String name = restaurantsDetailsBean.getName();
-//                System.out.println(name+"name"+restaurantsDetailsBean.name);
-//                String EmailID = new String();
-//                       EmailID=customerBean.getEmailId();
-//                System.out.println(EmailID+"email"+customerBean.emailId);
-//                Review review = new Review();
-////                List<Restaurantdetail> i=restaurantdetailDaoImpl.getIdByName(name);
-////                List<Customer> c= customerDaoImpl.getCustomerIdByName(EmailID);
-//		Restaurantdetail r=(Restaurantdetail) restaurantdetailDaoImpl.getIdByName(name);
-//                
-//                r.getId();
-//                review.setRestaurantdetail(r);
-//                
-//                
-//                Customer c1=(Customer) customerDaoImpl.getCustomerIdByName(EmailID);
-//                c1.getCustomerId();
-//                review.setCustomer(c1);
-//		review.setReviewDetails(getDetail());
-//                
-//                
-//                System.out.println("hii111");
-////		customerDaoImpl.addCustomer(cust);
-//		reviewDaoImpl.addReview(review);
-//		
-//		return "";
-//	}
 //    
 //    public List<Review> getAllReview(){
 //    

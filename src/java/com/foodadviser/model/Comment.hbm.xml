@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 10, 2014 8:13:35 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Jun 16, 2014 6:07:35 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.foodadviser.model.Comment" table="comment" catalog="test">
         <id name="commentId" type="java.lang.Long">

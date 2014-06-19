@@ -13,9 +13,10 @@ import com.foodadviser.model.Customer;
 import com.foodadviser.model.Restaurantdetail;
 import com.foodadviser.model.Review;
 import java.util.ArrayList;
-//import java.io.Serializable;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 //import javax.faces.bean.ManagedProperty;
 
 /**
@@ -23,22 +24,23 @@ import javax.faces.bean.ManagedBean;
  * @author jugalshah
  */
 @ManagedBean(name = "customer")
-public class CustomerBean {
+@SessionScoped
+public class CustomerBean implements Serializable{
 
 //        @ManagedProperty(value="#{customerBo}")
     CustomerDaoImpl customerDaoImpl;
     List<Restaurantdetail> list;
- ReviewDaoImpl reviewDaoImpl;
+    ReviewDaoImpl reviewDaoImpl;
     RestaurantdetailDaoImpl restaurantdetailDaoImpl;
+    ArrayList arrayList = new ArrayList();
 //	   CustomerCoreImpl customerCoreImpl;
-    
     CustomerBean customerBean;
     public String name;
     public String address;
     public String emailId;
     public String password;
     public String detail;
-public String restname;
+    public String restname;
     public String type;
 
     public String getRestname() {
@@ -56,9 +58,7 @@ public String restname;
     public void setType(String type) {
         this.type = type;
     }
-    
-    
-    
+
     public String getDetail() {
         return detail;
     }
@@ -67,7 +67,6 @@ public String restname;
         this.detail = detail;
     }
 
-    
     public String getName() {
         return name;
     }
@@ -139,60 +138,53 @@ public String restname;
 
         customerDaoImpl = new CustomerDaoImpl();
         String s = this.getEmailId();
-        return customerDaoImpl.getCustomerIdByName(s);
+        return customerDaoImpl.getCustomerIdByEmailId(s);
 
     }
-    
-    
+
     //add review to database
-     public String addReview(){
-		reviewDaoImpl =new ReviewDaoImpl();
-         
-                Review review = new Review();
-//                public void getIdbyName(String r)
-//                List<Restaurantdetail> i=customerBean.getIdByName();
-                System.out.println(restaurantdetailDaoImpl.getIdByName(this.getRestname())+"jugal");
-                review.setRestaurantdetail((Restaurantdetail) restaurantdetailDaoImpl.getIdByName(this.getRestname()));
-                System.out.println(customerDaoImpl.getCustomerIdByName(getEmailId())+"res");
-                review.setCustomer((Customer) customerDaoImpl.getCustomerIdByName(getEmailId()));
-                System.out.println(review+"cus");
-		review.setReviewDetails(getDetail());
-                
-                
-                System.out.println("hii111");
-//		customerDaoImpl.addCustomer(cust);
-		reviewDaoImpl.addReview(review);
-		
-		return "";
-	}
-    
-    public List<Review> getAllReview(){
-    
-    reviewDaoImpl = new ReviewDaoImpl();
-    return reviewDaoImpl.findAllReview();
-    
-    }
-    
-    public List<Restaurantdetail> getAlllist() {
-        restaurantdetailDaoImpl = new  RestaurantdetailDaoImpl();
-        list = restaurantdetailDaoImpl.findAlldetails();
-        
-        for(Restaurantdetail r:list){
-        r.getName();
-        }
-//        list.add((Restaurantdetail) getDetailBo().findAlldetails());
-        return list;
-    }
-    
-    public List<Restaurantdetail> getIdByName(){
-    
-    restaurantdetailDaoImpl= new RestaurantdetailDaoImpl();
-    String s=this.getRestname();
-    return restaurantdetailDaoImpl.getIdByName(s);
-    
-    }
-    //clear form values
+    public String addReview() {
+        reviewDaoImpl = new ReviewDaoImpl();
 
+        Review review = new Review();
+        review.setReviewDetails(getDetail());
+        System.out.println("hi");
+        reviewDaoImpl.addReview(review, getEmailId(), getRestname());
+
+        System.out.println(review + "hii2");
+//		review.setReviewDetails(getDetail());
+
+
+        return "";
+    }
+
+    public List<Review> getAllReview() {
+
+        reviewDaoImpl = new ReviewDaoImpl();
+        customerDaoImpl = new CustomerDaoImpl();
+        List<Review> result = reviewDaoImpl.findAllReview();
+//         for(Review r:result){
+//        
+//            System.out.println("details-->"+r.getReviewDetails());
+//           arrayList.add(r);
+//            System.out.println("customerid-->"+r.getCustomer());
+//            List<Customer> l= customerDaoImpl.getCustomerNamebyId(r.getCustomer().getCustomerId());
+//           for(Customer c:l){
+//               System.out.println("name"+c.getName());
+//           arrayList.add(c);
+//           }
+//           List<Restaurantdetail> k=restaurantdetailDaoImpl.getRestaurantNameById(r.getRestaurantdetail().getId());
+//           for(Restaurantdetail r1:k){
+//           
+//               System.out.println("rest"+r1.getName());
+//               arrayList.add(r1);
+//           }
+//           
+//        }
+       return result;
+    }
+
+    //clear form values
     private void clearForm() {
         setName("");
         setAddress("");
